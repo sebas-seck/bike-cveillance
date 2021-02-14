@@ -1,4 +1,5 @@
-picamera
-opencv-python
 numpy
+opencv-python
 pandas
+picamera
+RPi.GPIO

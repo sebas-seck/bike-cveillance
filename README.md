@@ -2,6 +2,8 @@
 
 ## RPi setup
 
+> tested on a Raspberry 3 B+
+
 - flash Raspian Lite on an SD card
 - mount the SD card and `touch ssh` in the boot partition
 - continue with below steps to set up the OS and clone the repo
@@ -36,3 +38,6 @@ cd bike-cveillance
 pip-compile --output-file=linux-armhf-py3.7-requirements.txt linux-armhf-py3.7-requirements.in
 pip3 install -r linux-armhf-py3.7-requirements.txt
 ```
+
+wget -O /home/pi/bike-cveillance/models/yolo/yolov3-tiny.weights https://pjreddie.com/media/files/yolov3-tiny.weights
+wget -O /home/pi/bike-cveillance/models/yolo/yolov3.weights https://pjreddie.com/media/files/yolov3.weights

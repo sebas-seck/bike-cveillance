@@ -21,5 +21,7 @@ python-dateutil==2.8.1
     # via pandas
 pytz==2021.1
     # via pandas
+rpi.gpio==0.7.0
+    # via -r linux-armhf-py3.7-requirements.in
 six==1.15.0
     # via python-dateutil
