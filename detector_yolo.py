@@ -12,7 +12,7 @@ from utils import draw_boxed_text
 
 
 
-class Detector:
+class Detector():
     """Class yolo"""
 
     def __init__(self, config):

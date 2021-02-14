@@ -13,11 +13,20 @@ import cv2
 import numpy as np
 # import pandas as pd
 from picamera import PiCamera
-from detector_yolo import Detector
+from detector_yolo import Detector as D_yolo
+from detector_ssd import Detector as D_ssd
+
+detectors = {
+    "yolo": D_yolo,
+    "ssd_mobilenet": D_ssd
+}
+
+DETECTION_MODEL = "ssd_mobilenet"
+# DETECTION_MODEL = "yolo"
 
 from config import full_config
 
-config = full_config["yolo"]
+config = full_config[DETECTION_MODEL]
 
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
@@ -34,7 +43,7 @@ while True:
     camera.capture(image, "bgr")
     image = image.reshape((480, 736, 3))
 
-    detector = Detector(config)
+    detector = detectors[DETECTION_MODEL](config)
     output = detector.prediction(image)
     df = detector.filter_prediction(output, image)
     print(df)

@@ -39,5 +39,15 @@ pip-compile --output-file=linux-armhf-py3.7-requirements.txt linux-armhf-py3.7-r
 pip3 install -r linux-armhf-py3.7-requirements.txt
 ```
 
+### yolo V3
 wget -O /home/pi/bike-cveillance/models/yolo/yolov3-tiny.weights https://pjreddie.com/media/files/yolov3-tiny.weights
 wget -O /home/pi/bike-cveillance/models/yolo/yolov3.weights https://pjreddie.com/media/files/yolov3.weights
+
+### mobilenet SSD
+mkdir models/ssd_mobilenet
+
+wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.pbtxt https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/ssd_mobilenet_v2_coco_2018_03_29.pbtxt
+
+wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+
+tar -xf models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz -C models/ssd_mobilenet/
