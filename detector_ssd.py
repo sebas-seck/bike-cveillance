@@ -6,7 +6,7 @@ import pandas as pd
 from utils import draw_boxed_text
 
 
-class Detector():
+class Detector_SSD():
     """Class ssd"""
 
     def __init__(self, config):

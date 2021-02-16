@@ -11,22 +11,9 @@ from datetime import datetime
 
 import cv2
 import numpy as np
-# import pandas as pd
 from picamera import PiCamera
-from detector_yolo import Detector as D_yolo
-from detector_ssd import Detector as D_ssd
 
-detectors = {
-    "yolo": D_yolo,
-    "ssd_mobilenet": D_ssd
-}
-
-DETECTION_MODEL = "ssd_mobilenet"
-# DETECTION_MODEL = "yolo"
-
-from config import full_config
-
-config = full_config[DETECTION_MODEL]
+from detector import detect
 
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
@@ -43,11 +30,7 @@ while True:
     camera.capture(image, "bgr")
     image = image.reshape((480, 736, 3))
 
-    detector = detectors[DETECTION_MODEL](config)
-    output = detector.prediction(image)
-    df = detector.filter_prediction(output, image)
-    print(df)
-    image = detector.draw_boxes(image, df)
+    # TODO turn detection model into cli arg
+    pred_image, pred_df = detect(image, "ssd_mobilenet")
 
     cv2.imwrite(f"data/frame-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.jpg", image)
-    # time.sleep(5)

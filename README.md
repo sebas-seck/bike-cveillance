@@ -12,6 +12,24 @@
 ```shell
 sudo apt-get update
 sudo apt-get upgrade
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+rfkill unblock 0
+```
+
+```bash
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=DE
+
+network={
+    ssid="YOURSSID"
+    psk="YOURPASSWORD"
+    scan_ssid=1
+}
+```
+
+
+```shell
 sudo apt-get install build-essential cmake pkg-config -y
 sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev -y
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
