@@ -2,7 +2,7 @@
 
 ## RPi setup
 
-> tested on a Raspberry 3 B+
+> tested on a Raspberry 3 B+ with a [joy-it NoIR 5MP camera](https://www.conrad.de/de/p/joy-it-8mpcir-cmos-farb-kameramodul-passend-fuer-raspberry-pi-ir-zusatzlicht-1656365.html#productDescription)
 
 - flash Raspian Lite on an SD card
 - mount the SD card and `touch ssh` in the boot partition
@@ -36,6 +36,7 @@ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
 sudo apt-get install libxvidcore-dev libx264-dev -y
 sudo apt-get install libgtk2.0-dev libgtk-3-dev -y
 sudo apt-get install libatlas-base-dev gfortran -y
+sudo apt install screen -y
 
 sudo apt install git
 sudo apt install python3-pip -y
@@ -69,3 +70,5 @@ wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.pbtxt https://raw.
 wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
 tar -xf models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz -C models/ssd_mobilenet/
+
+## 
