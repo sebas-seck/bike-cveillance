@@ -45,7 +45,7 @@ from detector import detect
     required=False,
     help="Intervall between captures",
 )
-def main(save_all, resolution, crop, intervall):
+def main(save_all, resolution, crop, model, intervall):
     # initialize the camera and grab a reference to the raw camera capture
     camera = PiCamera()
     camera.resolution = (resolution[0], resolution[1])
@@ -70,9 +70,16 @@ def main(save_all, resolution, crop, intervall):
                 image_resized = image_orig
 
             # TODO turn detection model into cli arg
-            pred_image, pred_df = detect(image_resized, "ssd_mobilenet")
+            pred_image, pred_df = detect(image_resized, model)
+            print(pred_df)
 
-            if save_all or len(pred_df) > 0:
+            person = pred_df["class_name"].str.contains("person").any()
+            if person:
+                print(
+                    f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - PERSON DETECTED!"
+                )
+
+            if save_all or person:
                 cv2.imwrite(
                     f"data/frame-{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}_original.jpg",
                     image_orig,

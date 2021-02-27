@@ -1,8 +1,11 @@
 # bike-cveillance
 
+This little project helps me to keep an eye on my bike. Standing in a corner of the backyard, there is little movement except for other bikers. Whenenver a person is detected, I capture images. This will not prevent theft, but the alarm and GPS on the bike do complete the setup.
+
+> works on a Raspberry Pi 3 B+ with a [joy-it NoIR 5MP camera](https://www.conrad.de/de/p/joy-it-8mpcir-cmos-farb-kameramodul-passend-fuer-raspberry-pi-ir-zusatzlicht-1656365.html#productDescription)
+
 ## RPi setup
 
-> tested on a Raspberry 3 B+ with a [joy-it NoIR 5MP camera](https://www.conrad.de/de/p/joy-it-8mpcir-cmos-farb-kameramodul-passend-fuer-raspberry-pi-ir-zusatzlicht-1656365.html#productDescription)
 
 - flash Raspian Lite on an SD card
 - mount the SD card and `touch ssh` in the boot partition
