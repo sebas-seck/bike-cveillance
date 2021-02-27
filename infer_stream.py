@@ -16,19 +16,24 @@ from detector import detect
 
 
 @click.command()
-@click.option("--save-all", is_flag=True, default=False)
+@click.option(
+    "--save-all",
+    is_flag=True,
+    default=False,
+    help="Save all images instead of images with a detected person.",
+)
 @click.option(
     "-r",
     "--resolution",
     type=(click.INT, click.INT),
-    default=(736, 480),
-    help="Max resolution 2592x1944",
+    default=(1280, 1024),
+    help="Resolution of the camera. Max resolution 2592x1944.",
 )
 @click.option(
     "--crop",
     type=(click.INT, click.INT, click.INT, click.INT),
     required=False,
-    help="Tuple[minX,maxX,minY,maxY]",
+    help="Crops image. Expects a tuple (minX,maxX,minY,maxY)",
 )
 @click.option(
     "-m",
@@ -43,7 +48,7 @@ from detector import detect
     type=click.INT,
     default=15,
     required=False,
-    help="Intervall between captures",
+    help="Intervall between captures in seconds",
 )
 def main(save_all, resolution, crop, model, intervall):
     # initialize the camera and grab a reference to the raw camera capture

@@ -73,3 +73,33 @@ wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.pbtxt https://raw.
 wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
 tar -xf models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz -C models/ssd_mobilenet/
+
+## Usage
+
+The module `ìnfer_stream.py` provides all functionality to continuously infer on a stream.
+
+```shell
+Usage: infer_stream.py [OPTIONS]
+
+Options:
+  --save-all                      Save all images instead of images with a
+                                  detected person.
+
+  -r, --resolution <INTEGER INTEGER>...
+                                  Resolution of the camera. Max resolution
+                                  2592x1944.
+
+  --crop <INTEGER INTEGER INTEGER INTEGER>...
+                                  Crops image. Expects a tuple
+                                  (minX,maxX,minY,maxY)
+
+  -m, --model TEXT                Model to be used, select from
+                                  [ssd_mobilenet, yolo]
+
+  -i, --intervall INTEGER         Intervall between captures in seconds
+  --help                          Show this message and exit.
+```
+
+The result:
+
+![person near bike](docs/person.jpg)
