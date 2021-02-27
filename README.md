@@ -70,5 +70,3 @@ wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.pbtxt https://raw.
 wget -O models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 
 tar -xf models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29.tar.gz -C models/ssd_mobilenet/
-
-## 

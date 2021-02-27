@@ -1,9 +1,10 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 import os
 import json
 
 
 # YOLO
-
 full_config = {}
 
 full_config["yolo"] = {
@@ -25,7 +26,6 @@ with open(os.path.join("./models", "yolo", "labels.json")) as json_data:
     full_config["yolo"]["CLASS_NAMES"] = json.load(json_data)
 
 # SSD
-
 full_config["ssd_mobilenet"] = {
     "DETECTION_MODEL": "ssd_mobilenet",
     "SWAPRB": True,
@@ -33,5 +33,5 @@ full_config["ssd_mobilenet"] = {
     "MODEL_WEIGHTS": "models/ssd_mobilenet/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb",
 }
 
-with open(os.path.join('models', "ssd_mobilenet", 'labels.json')) as json_data:
+with open(os.path.join("models", "ssd_mobilenet", "labels.json")) as json_data:
     full_config["ssd_mobilenet"]["CLASS_NAMES"] = json.load(json_data)
